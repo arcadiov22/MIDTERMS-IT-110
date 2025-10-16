@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+/*HEADER*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(212, 196, 175, 0.95);
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 42px;
+    font-weight: bold;
+    color: #000;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #555;
+}
+
+/*HERO SECTION*/
+main {
+    height: 100vh;
+    background-image: url('images/laptop-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    padding: 0 50px;
+    max-width: 1400px;
+}
+
+.hero-content h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 70px;
+    font-weight: 400;
+    margin-bottom: 60px;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    margin-top: 150px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid rgba(212, 196, 175, 0.95);
+    padding: 18px 50px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+    min-width: 220px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* -------------------------------
+   ABOUT SECTION
+---------------------------------- */
+.about-section {
+    background-color: #F5F5F0;
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    padding: 60px 20px 100px;
+    text-align: center;
+}
+
+.about-section h1 {
+    color: #5d866c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+    font-size: 45px;
+}
+
+.about-section p {
+    line-height: 1.7;
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.about-section li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.about-section strong {
+    font-weight: 600;
+}
+
+.quote {
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+/* -------------------------------
+   TEAM SECTION
+---------------------------------- */
+.team-section {
+    background-color: #F5F5F7;
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    text-align: center;
+    padding: 60px 20px 100px;
+}
+
+.team-section h1 {
+    color: #5d866c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    font-size: 45px;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.team-member {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.team-member img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.view-btn {
+    text-decoration: none;
+    background-color: #5d866c;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-btn:hover {
+    background-color: #4d705a;
+    transform: scale(1.05);
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .profile-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-image img {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+/*currency section na part */
+
+.converter-section {
+  background-image: url('images/currency-background.png');
+    background-size: cover;
+    margin-top: 15px;
+    padding: 80px 20px 100px;
+    margin-bottom: 15px;
+}
+
+.converter-section .container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.converter-title {
+  color: #5d866c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    font-size: 45px;
+}
+
+
+.converter-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+.converter-card input,
+.converter-card select {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+.currency-row {
+  display: flex;
+  gap: 12px;
+}
+
+
+#convertBtn {
+  background: linear-gradient(to right, #5d866c, #0d3c1e);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+#convertBtn:hover {
+  background: linear-gradient(to right, #5d866c, #0d3c1e);
+  transform: scale(1.02);
+}
+
+/* -------------------------------
+   ABOUT PROJECT SECTION
+---------------------------------- */
+.aboutproject-section {
+    background-color: #F5F5F0;
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    padding: 60px 20px 100px;
+    text-align: center;
+}
+
+.aboutproject-section h1 {
+    color: #5d866c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+    font-size: 45px;
+}
+
+.aboutproject-section p {
+    line-height: 1.7;
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*CONTACT SECTION*/
+#contact {
+  background: #F5F5F7;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.contact-container {
+  color: #090101;
+  text-align: center;
+  padding: 40px 50px;
+  border-radius: 15px;
+  max-width: 450px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+  color: #5d866c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    font-size: 45px;
+}
+
+.contact-container p {
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contact-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #090101;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  color: #090101;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.contact-form ::placeholder {
+  color: #999;
+}
+
+.send-btn {
+  background: linear-gradient(to right, #5d866c, #0d3c1e);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.send-btn:hover {
+  background: linear-gradient(to right, #5d866c, #0d3c1e);
+  transform: scale(1.03);
+}
+
+.contact-info {
+  margin-top: 25px;
+  font-size: 0.9rem;
+}
+
+.contact-info a {
+  color: #5d866c;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/*FOOTER SECTION*/
+.site-footer {
+  text-align: center;
+  background-color: rgba(212, 196, 175, 0.95);
+  padding: 30px 50px;
+}

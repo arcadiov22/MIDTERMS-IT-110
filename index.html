@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group 1 Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+</head>
+<body>
+  <header>
+    <div class="logo">Group 1</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#converter">Converter</a></li>
+        <li><a href="#contact">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="home">
+    <div class="hero-content">
+      <h1>Showcasing our skills, collaboration, and innovation in one portfolio.</h1>
+      <div class="button-group">
+        <a href="#team" class="btn">Meet the Team</a>
+        <a href="#converter" class="btn">Convert Now!</a>
+        <a href="#contact" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </main>
+
+  <!--About Section -->
+  <section id="about" class="about-section">
+    <h1>ABOUT OUR TEAM</h1>
+    <p>
+      We are a group of BSIT students who share a strong passion for technology, innovation, and continuous learning. As future IT professionals, we strive to enhance our skills, explore new ideas, and apply what we’ve learned through collaboration and creativity.
+    </p>
+    <p>
+      We value communication, respect, and teamwork. Each member’s unique strengths help us grow, adapt, and turn challenges into opportunities.
+    </p>
+    <p>Our teamwork is built on three core values:</p>
+    <ul>
+      <li>💡 <strong>Innovation</strong> – thinking creatively to find smart solutions.</li>
+      <li>🤝 <strong>Collaboration</strong> – working together with respect and communication.</li>
+      <li>⚙️ <strong>Dedication</strong> – giving our best in everything we do.</li>
+    </ul>
+    <p>
+      Every project, discussion, and shared idea helps us grow both as individuals and as a team.
+    </p>
+    <p class="quote">“We learn, we create, and we grow — together.”</p>
+  </section>
+
+  <!--Team Section -->
+  <section id="team" class="team-section">
+    <h1>OUR TEAM</h1>
+    <div class="team-container">
+      <div class="team-member">
+        <img src="images/VANESSA.png" alt="Vanessa Arcadio">
+        <h3>Vanessa Arcadio</h3>
+        <a href="https://arcadiov22.github.io/Portfolio-Arcadio/" target="_blank" class="view-btn">View</a>
+      </div>
+
+      <div class="team-member">
+        <img src="images/ERICA.png" alt="Erica Del Carmen">
+        <h3>Erica Del Carmen</h3>
+        <a href="https://heartfella05042019.github.io/glowing-spoon.github.io/" target="_blank" class="view-btn">View</a>
+      </div>
+
+      <div class="team-member">
+        <img src="images/ryan.png" alt="Dhant Guenryan Rañada">
+        <h3>Dhant Guenryan Rañada</h3>
+        <a href="https://gnr22.github.io/portfoliononode/" target="_blank" class="view-btn">View</a>
+      </div>
+
+      <div class="team-member">
+        <img src="images/photo3.jpg" alt="Jherzell Jane Sayahan">
+        <h3>Jherzell Jane Sayahan</h3>
+        <a href="https://evenerzeisrare.github.io/Portfolio/" target="_blank" class="view-btn">View</a>
+      </div>
+    </div>
+  </section>
+
+  <!--About Project Section -->
+  <section id="aboutproject" class="aboutproject-section">
+    <h1>ABOUT OUR PROJECT</h1>
+    <p>
+      The Converter API is a web-based application that allows users to convert values between various units or data types with accuracy and speed. It showcases how APIs can be used to process and deliver real-time conversion results efficiently.
+    </p>
+    
+    <p>
+       To provide a simple yet powerful tool that automates conversion tasks, demonstrating effective API integration, data handling, and user-friendly functionality.
+    </p>
+  </section>
+
+  <!--Project na section (Converter)-->
+    <section id="converter" class="converter-section">
+        <div class="container">
+            <div class="section-title">
+            </div>
+            <div class="converter-card">
+                <h3 class="converter-title">Currency Converter</h3>
+                <input type="number" id="amount" placeholder="Enter amount" value="1" min="0" step="any">
+                <div class="currency-row">
+                    <select id="fromCurrency"></select>
+                    <select id="toCurrency"></select>
+                </div>
+                <button id="convertBtn" class="btn">Convert</button>
+                <div id="result">Enter an amount to convert</div>
+            </div>
+        </div>
+    </section>
+
+     <section id="contact">
+  <div class="contact-container">
+    <h2>CONTACT</h2>
+    <p>Let’s connect — send us a message below:</p>
+
+    <form class="contact-form">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Write your message..." required></textarea>
+
+      <button type="submit" class="send-btn">➤ Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <p>Team Email: <a href="mailto:GroupOne@gmail.com">GroupOne@gmail.com</a></p>
+      <p>Location: Butuan City, Philippines</p>
+    </div>
+  </div>
+</section>
+  
+<footer class="site-footer">
+  © 2025 GroupOne · All rights reserved.
+</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
