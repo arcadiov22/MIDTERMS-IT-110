@@ -119,9 +119,7 @@ main::before {
     transform: translateY(-2px);
 }
 
-/* -------------------------------
-   ABOUT SECTION
----------------------------------- */
+/*ABOUT SECTION*/
 .about-section {
     background-color: #F5F5F0;
     font-family: 'Poppins', sans-serif;
@@ -170,9 +168,7 @@ main::before {
     margin-top: 30px;
 }
 
-/* -------------------------------
-   TEAM SECTION
----------------------------------- */
+/*TEAM SECTION*/
 .team-section {
     background-color: #F5F5F7;
     font-family: 'Poppins', sans-serif;
@@ -241,7 +237,7 @@ main::before {
     transform: scale(1.05);
 }
 
-/* Responsive Layout */
+/*RESPONSIVE LAYOUT*/
 @media (max-width: 900px) {
   .profile-container {
     flex-direction: column;
@@ -254,7 +250,7 @@ main::before {
   }
 }
 
-/*currency section na part */
+/*CURRENCY SECTION NA PART*/
 
 .converter-section {
   background-image: url('images/currency-background.png');
@@ -323,9 +319,7 @@ main::before {
   transform: scale(1.02);
 }
 
-/* -------------------------------
-   ABOUT PROJECT SECTION
----------------------------------- */
+/*ABOUT PROJECT SECTION*/
 .aboutproject-section {
     background-color: #F5F5F0;
     font-family: 'Poppins', sans-serif;
