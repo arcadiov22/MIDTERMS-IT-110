@@ -28,6 +28,19 @@ header {
   z-index: 100;
 }
 
+/* Change header style on scroll */
+header.scrolled {
+  background-color: rgb(45, 35, 25); /* dark brown-black */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* light shadow */
+  padding: 10px 35px;
+  transition: all 0.3s ease;
+}
+
+/* Make text inside header white when scrolled */
+header.scrolled .logo,
+header.scrolled nav ul li a {
+  color: white;
+}
 
 /* LOGO */
 .logo {
