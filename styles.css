@@ -1,0 +1,659 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* HEADER SECTION — Para sa ibabaw nga parte sa page */
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: rgba(212, 196, 175, 0.95);
+  z-index: 100;
+}
+
+
+/* LOGO */
+.logo {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 42px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* NAVIGATION */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 50px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #555;
+}
+
+/* MENU TOGGLE ICON (HIDDEN ON DESKTOP) */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #000;
+  cursor: pointer;
+}
+/* ======= MOBILE VIEW ======= */
+@media (max-width: 750px) {
+  /* Hide normal menu */
+  nav ul {
+    display: none;
+  }
+
+  /* Show menu icon */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 50px;
+    top: 25px;
+    cursor: pointer;
+    font-size: 28px;
+    color: #000;
+  }
+
+  /* Dropdown menu */
+  nav.active ul {
+    position: absolute;
+    top: 85px;
+    right: 20px;
+    background-color: rgba(167, 148, 124, 0.98);
+    border-radius: 8px;
+    padding: 5px 0; /* smaller vertical padding */
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 160px; /* slightly slimmer */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    gap: 15px; /* removes large space between items */
+  }
+
+  nav.active ul li {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.active ul li a {
+    display: block;
+    padding: 8px 15px; /* reduced padding */
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  nav.active ul li a:hover {
+    color: #fff;
+  }
+}
+
+
+
+/* HOME SECTION — Mao ni ang main nga welcome part sa page */
+.home-section {
+  height: 900px;
+  margin-top: -60px;
+  background: url('images/laptop-background.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.home-content {
+  position: relative;
+  display: flex; /* Para magpabilin nga centered ang heading, paragraph, ug buttons */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+  z-index: 1;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.home-content h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 60px;
+  margin-bottom: 24px;
+  margin-left: 1in;
+  margin-right: 1in;
+}
+
+.home-content p {
+  font-size: 25px; 
+  max-width: 1100px;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.home-btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  background-color: rgba(212, 196, 175, 0.95);
+  color: black;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+   background-color: rgba(212, 196, 175, 0.95);
+}
+
+/* ABOUT SECTION — Para ipaila ang grupo o project */
+.about-section {
+    background-color: #F5F5F0;
+    font-family: 'Poppins', sans-serif; /* gikan sa CDN link */
+    color: #000;
+    padding: 60px 20px 100px;
+    text-align: center;
+}
+
+.about-section h1 {
+    color: #5d866c;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 60px;
+    font-size: 45px;
+    animation: fadeInDown 1s ease;
+}
+
+.about-section p {
+    line-height: 1.7;
+    font-size: 18px;
+    margin-bottom: 20px;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.about-section li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.about-section strong {
+    font-weight: 600;
+}
+
+.quote {
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+
+/* TEAM SECTION  na part */
+.team-section {
+  background-color: #F5F5F7;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+  text-align: center;
+  padding: 60px 20px 100px;
+}
+
+.team-section h1 {
+  color: #5d866c;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  font-size: 45px;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.member-role
+{
+  color: #5d866c;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.team-member {
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.team-member img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* SOCIAL LINKS */
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background: var(--light);
+  border-radius: 17.5px;
+  color: var(--primary);
+  transition: var(--transition);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .team-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .team-member {
+    width: 90%;
+  }
+}
+/* CURRENCY SECTION — Mao ni ang converter nga part sa project */
+
+/* CURRENCY SECTION — Mao ni ang converter nga part sa project */
+.converter-section {
+  background-image: url('images/currency-background.png');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 10px;        
+  margin: 50px 0;           
+  min-height: 500px;        
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.converter-section .container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.converter-title {
+  color: #5d866c;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  font-size: 45px;
+}
+
+.converter-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.converter-card input,
+.converter-card select {
+  width: 100%;            /* mosunod sa gilapdon sa parent */
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.currency-row {
+  display: flex;
+  gap: 12px;
+}
+
+#convertBtn {
+  background: linear-gradient(to right, #5d866c, #0d3c1e);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+#convertBtn:hover {
+  background: linear-gradient(to right, #5d866c, #0d3c1e);
+  transform: scale(1.02);
+}
+
+
+#result {
+  background-color: #f0f8f5;  
+  color: #0d3c1e;             
+  font-weight: 600;
+  font-size: 18px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #5d866c;  
+  text-align: center;
+  margin-top: 12px;
+  min-height: 50px;           
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+#result:hover {
+  background-color: #e3f1e7;
+}
+
+
+/* ABOUT PROJECT SECTION — Para ipasabot unsa ang inyong project */
+.aboutproject-section {
+  background-color: #F5F5F0;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+  padding: 80px 20px;
+}
+
+.aboutproject-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aboutproject-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1 1 500px;
+}
+
+.about-text h1 {
+  color: #5d866c;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  font-size: 45px;
+}
+
+.about-text p {
+  line-height: 1.7;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.view-app-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: linear-gradient(to right, #5d866c, #0d3c1e);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.view-app-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(93,134,108,0.4);
+}
+
+.about-image {
+  flex: 1 1 450px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .aboutproject-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text, .about-image {
+    flex: 1 1 100%;
+  }
+
+  .about-text h1 {
+    font-size: 36px;
+  }
+}
+
+
+section {
+  scroll-margin-top: 100px; /* para dili ma-overlap kung mag-click sa nav link */
+  clear: both;
+  position: relative;
+}
+
+
+/* CONTACT SECTION — Mao ni ang contact form para sa user */
+.contact {
+  background-color:#F5F5F0;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.section-title h2 {
+  color: #5d866c;
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.section-title p {
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Contact Info Left Side */
+.contact-info {
+  flex: 1 1 45%;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #fff;
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.contact-item:hover {
+  transform: translateY(-3px);
+}
+
+.contact-icon {
+  font-size: 28px;
+  color: #5d866c;
+}
+
+.contact-details h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.contact-details p {
+  margin: 2px 0 0 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Contact Form Right Side */
+.contact-form {
+  flex: 1 1 50%;
+  min-width: 300px;
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #090101;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #5d866c;
+  box-shadow: 0 0 8px rgba(93,134,108,0.3);
+}
+
+.contact-form button.btn {
+  background: linear-gradient(to right, #5d866c, #0d3c1e);
+  color: #fff;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.contact-form button.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(93,134,108,0.4);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info,
+  .contact-form {
+    flex: 1 1 100%;
+  }
+}
+
+
+/* FOOTER SECTION — Para sa ubos nga parte sa page */
+.site-footer {
+  text-align: center;
+  background-color: rgba(212, 196, 175, 0.95);
+  padding: 30px 50px;
+}

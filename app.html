@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Group 1 Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <!--2 links below are cdn links-->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <!--Loads a font library called font awesome library refer to class name like "fa-brands fa-github"-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Group 1</div>
+
+  <!-- Menu icon for mobile -->
+  <div class="menu-toggle" id="menu-toggle">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <!-- Navigation (only Back to Home) -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="index.html">Back to Home</a></li>
+    </ul>
+  </nav>
+</header>
+
+    <!--Project na section (Converter)-->
+    <section id="converter" class="converter-section">
+        <div class="container">
+            <div class="section-title">
+            </div>
+            <div class="converter-card">
+                <h3 class="converter-title">Currency Converter</h3>
+                <input type="number" id="amount" placeholder="Enter amount" value="1" min="0" step="any">
+                <div class="currency-row">
+                    <select id="fromCurrency"></select>
+                    <select id="toCurrency"></select>
+                </div>
+                <button id="convertBtn" class="btn">Convert</button>
+                <div id="result">Enter an amount to convert</div>
+            </div>
+        </div>
+    </section>
+
+    <!--Footer na section-->
+<footer class="site-footer">
+  © 2025 GroupOne · All rights reserved.
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
