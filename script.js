@@ -1,4 +1,3 @@
-
 /* SCRIPT.JS is the most important part of the project. Contains the functions that
 make the API work*/
     const fromCurrency = document.getElementById("fromCurrency");
@@ -11,25 +10,48 @@ make the API work*/
     //Your API Key: 268281b25b9e3259adec19da
     const apiKey = "268281b25b9e3259adec19da";
 
+    function showError(msg) {
+      if (result) result.textContent = msg;
+    }
+
     // Load info thru the link or your API key
     async function loadCurrencies() {
-      const res = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/codes`);
-      const data = await res.json();
-      const codes = data.supported_codes;
+      if (!navigator.onLine) {
+        showError("No internet connection. Please check your connection and reload the page.");
+        return;
+      }
 
-      // Options for the dropdown of kind of currency
-      codes.forEach(([code, name]) => {
-        const option1 = document.createElement("option");
-        const option2 = document.createElement("option");
-        option1.value = option2.value = code;
-        option1.text = option2.text = `${code} - ${name}`;
-        fromCurrency.appendChild(option1);
-        toCurrency.appendChild(option2);
-      });
+      try {
+        const res = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/codes`);
+        if (!res.ok) {
+          showError("Failed to load currencies. Server returned an error.");
+          console.error("loadCurrencies fetch failed:", res.status, res.statusText);
+          return;
+        }
+        const data = await res.json();
+        const codes = data.supported_codes;
+
+        // Options for the dropdown of kind of currency
+        codes.forEach(([code, name]) => {
+          const option1 = document.createElement("option");
+          const option2 = document.createElement("option");
+          option1.value = option2.value = code;
+          option1.text = option2.text = `${code} - ${name}`;
+          fromCurrency.appendChild(option1);
+          toCurrency.appendChild(option2);
+        });
 
 
-      fromCurrency.value = "PHP"; // Default values when you open the site
-      toCurrency.value = "USD";   // Default values when you open the site
+        fromCurrency.value = "PHP"; // Default values when you open the site
+        toCurrency.value = "USD";   // Default values when you open the site
+      } catch (err) {
+        if (!navigator.onLine) {
+          showError("No internet connection. Please check your connection.");
+        } else {
+          showError("Failed to load currency list. Please try again later.");
+        }
+        console.error("loadCurrencies error:", err);
+      }
     }
 
     // Convert currency function
@@ -40,13 +62,24 @@ make the API work*/
         result.textContent = "Please enter a valid amount.";
         return;
       }
+      // gets selected currencies
       const from = fromCurrency.value;
       const to = toCurrency.value;
+
+      if (!navigator.onLine) {
+        showError("No internet connection. Please check your connection and try again.");
+        return;
+      }
 
       try {
         // Fetch requested currency from the the API
         const res = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/pair/${from}/${to}/${amount}`);
-        const data = await res.json();// It changes the response from the API (which comes as text) into usable JavaScript data (an object).
+        if (!res.ok) {
+          showError("Conversion service error.");
+          console.error("convertCurrency fetch failed:", res.status, res.statusText);
+          return;
+        }
+        const data = await res.json();// It changes the response from the API (which comes as text) into usable JavaScript data.
 
         if (data.result === "success") {
           result.textContent = `${amount} ${from} = ${data.conversion_result.toFixed(2)} ${to}`;
@@ -54,24 +87,20 @@ make the API work*/
           result.textContent = "Conversion failed";
         }
       } catch (err) {
-        result.textContent = "Failed to fetch exchange rate.";
+        if (!navigator.onLine) {
+          showError("No internet connection.");
+        } else {
+          showError("Failed to fetch exchange rate.");
+        }
         console.error(err);
       }
     }
 
-
-
-
     // Only attach events if elements exist
     if (convertBtn) convertBtn.addEventListener("click", convertCurrency);
-  
-
-
 
     loadCurrencies();// It calls the function that fetches all available currencies (USD, PHP, EUR, etc.) from the API and fills the dropdowns.
 
-
-    
     document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('nav');
@@ -79,9 +108,11 @@ make the API work*/
     const navLinks = document.querySelectorAll('nav ul li a');
 
     // Toggle Menu
-    menuToggle.addEventListener('click', () => {
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
         nav.classList.toggle('active');
-    });
+      });
+    }
 
     // Close Menu when clicking a link
     navLinks.forEach(link => {
@@ -100,13 +131,13 @@ make the API work*/
     });
 });
 
-// Contact Form Confirmation
-  const contactForm = document.querySelector('#contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      alert('Thank you for your message! We will get back to you soon.');
-      console.log('Form submitted');
-      contactForm.reset(); // Clears form after submission
-    });
-  }
+    // Contact Form Confirmation
+      const contactForm = document.querySelector('#contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', e => {
+          e.preventDefault();
+          alert('Thank you for your message! We will get back to you soon.');
+          console.log('Form submitted');
+          contactForm.reset(); // Clears form after submission
+        });
+      }
